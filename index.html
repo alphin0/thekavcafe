@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="KAV – A Green Bistro. Where Nature Meets Taste. Experience a botanical, eco-luxury dining sanctuary.">
+  <title>KAV – A Green Bistro</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="logo-link">
+        <!-- Using logo.jpg and ensuring fallback/styling -->
+        <img src="assets/logo.jpg" alt="KAV Logo" class="nav-logo">
+      </a>
+      <div class="nav-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-close-btn" id="nav-close"><i class="fas fa-times"></i></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#menu" class="nav-link">Menu</a></li>
+        <li class="nav-item"><a href="#philosophy" class="nav-link">Philosophy</a></li>
+        <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li class="nav-item"><a href="#visit" class="nav-link">Visit Us</a></li>
+        <li class="nav-item cta-item"><a href="#contact" class="nav-link nav-cta">Reserve</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content fade-in-up">
+      <img src="assets/logo.jpg" alt="KAV Logo" class="hero-logo-img">
+      <h1 class="hero-title">Where Nature Meets Taste</h1>
+      <p class="hero-subtitle">A Green Bistro Experience</p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn btn-primary">View Menu</a>
+        <a href="#visit" class="btn btn-outline">Visit Us</a>
+      </div>
+    </div>
+    <div class="scroll-down">
+      <a href="#about"><i class="fas fa-chevron-down"></i></a>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="section about" id="about">
+    <div class="container about-container">
+      <div class="about-image reveal-left">
+        <img src="assets/new_interior.jpg" alt="Interior of KAV Bistro">
+      </div>
+      <div class="about-text reveal-right">
+        <h4 class="section-subtitle">Our Story</h4>
+        <h2 class="section-title">A Sanctuary in the City</h2>
+        <p>Welcome to <strong>KAV</strong>, a green bistro born from a passion for freshness, wellness, and mindful
+          dining. We believe that food should not only taste exquisite but also nourish the soul.</p>
+        <p>Nestled in the heart of the city, our space is a tranquil escape designed with organic forms and living
+          greenery. Every dish is a celebration of nature, crafted with locally sourced, sustainable ingredients.</p>
+        <a href="#philosophy" class="btn btn-text">Read Our Philosophy <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Highlights -->
+  <section class="section menu-highlights" id="menu">
+    <div class="container">
+      <div class="section-header text-center reveal-up">
+        <h4 class="section-subtitle">Taste Nature</h4>
+        <h2 class="section-title">Signature Creations</h2>
+      </div>
+      <div class="menu-grid">
+        <!-- Item 1: Avocado Toast -->
+        <div class="menu-card reveal-up">
+          <div class="menu-img-wrapper">
+            <img src="assets/menu_avocado_toast.jpg" alt="Avocado Toast" class="menu-img">
+          </div>
+          <div class="menu-details">
+            <div class="menu-header">
+              <h3>Avocado Smash</h3>
+              <span class="price">₹290</span>
+            </div>
+            <p class="menu-desc">Fresh sourdough topped with smashed avocado, sunny-side up eggs, and chili flakes.</p>
+          </div>
+        </div>
+
+        <!-- Item 2: Turkish Eggs -->
+        <div class="menu-card reveal-up" style="animation-delay: 0.1s;">
+          <div class="menu-img-wrapper">
+            <img src="assets/menu_turkish_eggs.jpg" alt="Turkish Eggs" class="menu-img">
+          </div>
+          <div class="menu-details">
+            <div class="menu-header">
+              <h3>Turkish Eggs</h3>
+              <span class="price">₹310</span>
+            </div>
+            <p class="menu-desc">Poached eggs on a bed of garlicky yogurt, drizzled with chili butter and herbs.</p>
+          </div>
+        </div>
+
+        <!-- Item 3: Wings -->
+        <div class="menu-card reveal-up" style="animation-delay: 0.2s;">
+          <div class="menu-img-wrapper">
+            <img src="assets/menu_wings.jpg" alt="Glazed Wings" class="menu-img">
+          </div>
+          <div class="menu-details">
+            <div class="menu-header">
+              <h3>Honey Glazed Wings</h3>
+              <span class="price">₹340</span>
+            </div>
+            <p class="menu-desc">Sticky, sweet, and spicy chicken wings garnished with sesame seeds and fresh herbs.</p>
+          </div>
+        </div>
+
+        <!-- Item 4: Pasta -->
+        <div class="menu-card reveal-up" style="animation-delay: 0.3s;">
+          <div class="menu-img-wrapper">
+            <img src="assets/menu_pasta.jpg" alt="Creamy Pasta" class="menu-img">
+          </div>
+          <div class="menu-details">
+            <div class="menu-header">
+              <h3>Creamy Alfredo</h3>
+              <span class="price">₹360</span>
+            </div>
+            <p class="menu-desc">Rich white sauce pasta with olives, cheese, and a side of toasted dark bread.</p>
+          </div>
+        </div>
+
+        <!-- Item 5: Latte -->
+        <div class="menu-card reveal-up" style="animation-delay: 0.4s;">
+          <div class="menu-img-wrapper">
+            <img src="assets/menu_latte.jpg" alt="Barista Latte" class="menu-img">
+          </div>
+          <div class="menu-details">
+            <div class="menu-header">
+              <h3>Artisanal Latte</h3>
+              <span class="price">₹180</span>
+            </div>
+            <p class="menu-desc">Perfectly brewed espresso with velvety steamed milk and expert latte art.</p>
+          </div>
+        </div>
+
+        <!-- Item 6: CTA -->
+        <div class="menu-card menu-cta-card reveal-up" style="animation-delay: 0.5s;">
+          <div class="menu-cta-content">
+            <h3>Discover More</h3>
+            <p>Explore our full range of organic teas, fresh juices, and seasonal specials.</p>
+            <a href="https://menu.i4interface.com/kav-cafe/menu" class="btn btn-primary" target="_blank">Full Menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="section philosophy" id="philosophy">
+    <div class="container">
+      <div class="section-header text-center reveal-up">
+        <h4 class="section-subtitle">Why KAV?</h4>
+        <h2 class="section-title">Our Core Values</h2>
+      </div>
+      <div class="philosophy-grid">
+        <div class="philosophy-item reveal-up">
+          <div class="icon-box">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>Fresh Ingredients</h3>
+          <p>Farm-to-table freshness in every bite, sourced from local growers.</p>
+        </div>
+        <div class="philosophy-item reveal-up" style="animation-delay: 0.1s;">
+          <div class="icon-box">
+            <i class="fas fa-tree"></i>
+          </div>
+          <h3>Nature Inspired</h3>
+          <p>A dining space that breathes, surrounded by calming greenery.</p>
+        </div>
+        <div class="philosophy-item reveal-up" style="animation-delay: 0.2s;">
+          <div class="icon-box">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Crafted with Care</h3>
+          <p>Artisanal preparation methods that respect the ingredients.</p>
+        </div>
+        <div class="philosophy-item reveal-up" style="animation-delay: 0.3s;">
+          <div class="icon-box">
+            <i class="fas fa-spa"></i>
+          </div>
+          <h3>Peaceful Experience</h3>
+          <p>A quiet retreat to disconnect and savor the moment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section gallery" id="gallery">
+    <div class="container">
+      <div class="section-header text-center reveal-up">
+        <h4 class="section-subtitle">Visuals</h4>
+        <h2 class="section-title">The KAV Experience</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item large reveal-up"><img src="assets/exterior_seating_evening.jpg"
+            alt="Evening Outdoor Seating"></div>
+        <div class="gallery-item reveal-up"><img src="assets/exterior_garden_hut.jpg" alt="Cozy Outdoor Table"></div>
+        <div class="gallery-item reveal-up"><img src="assets/interior_counter.jpg" alt="Counter View"></div>
+        <div class="gallery-item reveal-up"><img src="assets/mandala_wall.jpg" alt="Decor Details"></div>
+        <!-- <div class="gallery-item reveal-up"><img src="assets/exterior_garden_hut.jpg" alt="Garden Hut"></div> -->
+        <div class="gallery-item reveal-up"><img src="assets/gallery_pathway.jpg" alt="Garden Pathway"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visit Us / Contact -->
+  <section class="section visit" id="visit">
+    <div class="container">
+      <div class="visit-card reveal-up">
+        <div class="visit-info">
+          <h2 class="section-title">Visit Us</h2>
+          <p class="address"><i class="fas fa-map-marker-alt"></i> Thonniyakavu Temple, South, Naaluvazhi - Thonniyakavu
+            Rd, North Paravur, Kerala 683513 </p>
+          <div class="hours">
+            <h4>Opening Hours</h4>
+            <p>Sun - Sat: 2:00 PM - 11:00 PM</p>
+          </div>
+          <div class="contact-actions" id="contact">
+            <a href="https://wa.me/917994930089" class="btn btn-whatsapp" target="_blank"><i
+                class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+            <a href="tel:+917994930089" class="btn btn-call"><i class="fas fa-phone"></i> Call Us</a>
+          </div>
+          <form class="reservation-form" id="reservationForm">
+            <h3>Reserve a Table</h3>
+            <div class="form-group">
+              <input type="text" id="res-name" placeholder="Name" required>
+              <input type="tel" id="res-phone" placeholder="Phone" required>
+            </div>
+            <div class="form-group">
+              <input type="date" id="res-date" required>
+              <input type="time" id="res-time" required>
+              <select id="res-guests" required>
+                <option value="">Guests</option>
+                <option value="1">1 Person</option>
+                <option value="2">2 People</option>
+                <option value="3">3 People</option>
+                <option value="4+">4+ People</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Book Now</button>
+          </form>
+        </div>
+        <div class="map-wrapper">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62840.463477095975!2d76.23026689999999!3d10.1375877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0811f8733cc1f1%3A0xcf53f141075bd1fc!2sThe%20Kav!5e0!3m2!1sen!2sin!4v1767847172620!5m2!1sen!2sin"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#home">
+          <img src="assets/logo.jpg" alt="KAV Logo" class="footer-logo">
+        </a>
+        <p>A Green Bistro Experience.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#visit">Location</a>
+        <a href="#privacy">Privacy</a>
+      </div>
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <!-- <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a> -->
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 KAV Bistro. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
