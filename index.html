@@ -6,15 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
     content="KAV – A Green Bistro. Where Nature Meets Taste. Experience a botanical, eco-luxury dining sanctuary.">
-  <title>KAV – A Green Bistro</title>
+  <title>KAV – A Green Bistro | Best Cafe in North Paravur, Kerala</title>
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="keywords"
+    content="KAV, Bistro, Cafe, North Paravur, Green Dining, Eco-Friendly, Sustainable, Farm to Table, Kerala, Coffee">
+  <meta name="author" content="KAV Bistro">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thekav.com/">
+  <meta property="og:title" content="KAV – A Green Bistro | North Paravur">
+  <meta property="og:description"
+    content="Experience a botanical, eco-luxury dining sanctuary in North Paravur. Where nature meets taste with fresh, sustainable ingredients.">
+  <meta property="og:image" content="https://thekav.com/assets/main_bg.webp">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://thekav.com/">
+  <meta property="twitter:title" content="KAV – A Green Bistro | North Paravur">
+  <meta property="twitter:description"
+    content="Experience a botanical, eco-luxury dining sanctuary in North Paravur. Where nature meets taste with fresh, sustainable ingredients.">
+  <meta property="twitter:image" content="https://thekav.com/assets/main_bg.webp">
+
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -51,8 +73,8 @@
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in-up">
       <img src="assets/logo.jpg" alt="KAV Logo" class="hero-logo-img">
-      <h1 class="hero-title">Where Nature Meets Taste</h1>
-      <p class="hero-subtitle">A Green Bistro Experience</p>
+      <h1 class="hero-title">THE KAV – A Green Bistro in North Paravur</h1>
+      <h2 class="hero-subtitle">Where Nature Meets Taste</h2>
       <div class="hero-buttons">
         <a href="#menu" class="btn btn-primary">View Menu</a>
         <a href="#visit" class="btn btn-outline">Visit Us</a>
@@ -72,10 +94,13 @@
       <div class="about-text reveal-right">
         <h4 class="section-subtitle">Our Story</h4>
         <h2 class="section-title">A Sanctuary in the City</h2>
-        <p>Welcome to <strong>KAV</strong>, a green bistro born from a passion for freshness, wellness, and mindful
-          dining. We believe that food should not only taste exquisite but also nourish the soul.</p>
-        <p>Nestled in the heart of the city, our space is a tranquil escape designed with organic forms and living
-          greenery. Every dish is a celebration of nature, crafted with locally sourced, sustainable ingredients.</p>
+        <p>Welcome to <strong>KAV</strong>, a green bistro shaped by a passion for freshness, wellness, and mindful
+          dining. We believe food should do more than satisfy hunger — it should create a sense of balance, comfort, and
+          connection.</p>
+        <p><strong>The KAV</strong> is a green bistro and café in North Paravur, Kerala, located near Thonniyakavu
+          Temple. We serve thoughtfully prepared coffee and bistro-style dishes in a quiet, nature-inspired setting
+          designed for relaxed, unhurried dining.</p>
+    
         <a href="#philosophy" class="btn btn-text">Read Our Philosophy <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
@@ -230,6 +255,21 @@
     </div>
   </section>
 
+  <!-- Instagram Section -->
+  <section class="section instagram-section" id="social">
+    <div class="container">
+      <div class="section-header text-center reveal-up">
+        <h4 class="section-subtitle">Stay Connected</h4>
+        <h2 class="section-title">Follow Us @thekavcafe</h2>
+      </div>
+      <div class="insta-embed-container reveal-up">
+        <script src="https://elfsightcdn.com/platform.js" async></script>
+        <div class="elfsight-app-3999b951-65c5-4f07-b4b5-aa9ff57ce173" data-elfsight-app-lazy></div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- Visit Us / Contact -->
   <section class="section visit" id="visit">
     <div class="container">
@@ -240,7 +280,7 @@
             Rd, North Paravur, Kerala 683513 </p>
           <div class="hours">
             <h4>Opening Hours</h4>
-            <p>Sun - Sat: 2:00 PM - 11:00 PM</p>
+            <p>Daily · 2:00 PM – 11:00 PM</p>
           </div>
           <div class="contact-actions" id="contact">
             <a href="https://wa.me/917994930089" class="btn btn-whatsapp" target="_blank"><i
@@ -255,7 +295,9 @@
             </div>
             <div class="form-group">
               <input type="date" id="res-date" required>
-              <input type="time" id="res-time" required>
+              <select id="res-time" required>
+                <option value="">Select Time</option>
+              </select>
               <select id="res-guests" required>
                 <option value="">Guests</option>
                 <option value="1">1 Person</option>
@@ -264,7 +306,7 @@
                 <option value="4+">4+ People</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-primary">Book Now</button>
+            <button type="submit" class="btn btn-primary">Confirm Reservation</button>
           </form>
         </div>
         <div class="map-wrapper">
@@ -293,7 +335,8 @@
         <a href="#privacy">Privacy</a>
       </div>
       <div class="footer-socials">
-        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/thekavcafe?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          target="_blank"><i class="fab fa-instagram"></i></a>
         <!-- <a href="#"><i class="fab fa-facebook-f"></i></a>
         <a href="#"><i class="fab fa-twitter"></i></a> -->
       </div>
@@ -304,6 +347,54 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "KAV – A Green Bistro",
+    "image": "https://thekav.com/assets/main_bg.webp",
+    "description": "A green bistro in North Paravur offering a botanical dining experience with sustainable, locally sourced ingredients.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Thonniyakavu Temple, South, Naaluvazhi - Thonniyakavu Rd",
+      "addressLocality": "North Paravur",
+      "addressRegion": "Kerala",
+      "postalCode": "683513",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 10.1375877,
+      "longitude": 76.2302669
+    },
+    "url": "https://thekav.com",
+    "telephone": "+917994930089",
+    "servesCuisine": ["Cafe", "Bistro", "Healthy", "Continental"],
+    "priceRange": "₹₹",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "14:00",
+        "closes": "23:00"
+      }
+    ],
+    "menu": "https://menu.i4interface.com/kav-cafe/menu",
+    "sameAs": [
+      "https://www.instagram.com/thekavcafe"
+    ]
+  }
+  </script>
 </body>
 
 </html>
