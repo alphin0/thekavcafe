@@ -82,13 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Main Script for KAV Bistro
 
-// Aggressively remove Elfsight Branding (including Shadow DOM)
+// 85. Optimized removal of Elfsight branding using MutationObserver
 function removeBranding() {
-  // 1. Try normal DOM
   const brandingLinks = document.querySelectorAll('a[href*="elfsight.com"], .eapps-link');
   brandingLinks.forEach(link => link.remove());
 
-  // 2. Try Shadow DOM
   const widgets = document.querySelectorAll('div[class*="elfsight-app"]');
   widgets.forEach(widget => {
     if (widget.shadowRoot) {
@@ -98,8 +96,19 @@ function removeBranding() {
   });
 }
 
-// Run repeatedly to catch it as it loads (every 100ms)
-setInterval(removeBranding, 100);
+// Use MutationObserver for better performance
+const brandingObserver = new MutationObserver((mutations) => {
+  removeBranding();
+});
+
+brandingObserver.observe(document.body, {
+  childList: true,
+  subtree: true
+});
+
+// Initial run and fallback timeout to stop observing after 10s
+removeBranding();
+setTimeout(() => brandingObserver.disconnect(), 10000);
 window.onload = removeBranding;
 
 document.addEventListener('DOMContentLoaded', () => {

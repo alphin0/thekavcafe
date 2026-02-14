@@ -14,6 +14,12 @@
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/favicon_v3.png">
+
+  <!-- Performance Hints -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preload" as="image" href="assets/main_bg_mobile.webp" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/main_bg.webp" media="(min-width: 769px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/logo.webp" fetchpriority="high">
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <meta name="keywords"
@@ -37,8 +43,126 @@
     content="Experience a botanical, eco-luxury dining sanctuary in North Paravur. Where nature meets taste with fresh, sustainable ingredients.">
   <meta property="twitter:image" content="https://thekav.com/assets/main_bg.webp">
 
+  <style>
+    /* Critical CSS to improve LCP & prevent FOIT */
+    :root {
+      --color-forest: #1A3C34;
+      --color-sage-light: #E1EBE2;
+      --color-white: #FFFFFF;
+      --color-off-white: #F8F9F5;
+      --color-gold: #C5A065;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Outfit', sans-serif;
+      --header-height: 80px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      font-family: var(--font-body);
+      background-color: var(--color-off-white);
+    }
+
+    .hero {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--color-white);
+      background-color: var(--color-forest);
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .hero-bg {
+        background-image: url('assets/main_bg_mobile.webp');
+      }
+
+      .hero-title {
+        font-size: 2.5rem !important;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .hero-bg {
+        background-image: url('assets/main_bg.webp');
+      }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(26, 60, 52, 0.4), rgba(26, 60, 52, 0.7));
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 800px;
+      padding: 0 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: f 1s forwards 0.2s;
+    }
+
+    @keyframes f {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      margin-bottom: 10px;
+      color: var(--color-white);
+      line-height: 1.1;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-height);
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+  </style>
+
   <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="style.css">
+  </noscript>
 </head>
 
 <body>
@@ -48,7 +172,7 @@
     <div class="container nav-container">
       <a href="#home" class="logo-link">
         <!-- Using logo.jpg and ensuring fallback/styling -->
-        <img src="assets/logo.webp" alt="KAV Logo" class="nav-logo">
+        <img src="assets/logo.webp" alt="KAV Logo" class="nav-logo" width="50" height="50">
       </a>
       <div class="nav-toggle" id="mobile-menu">
         <span class="bar"></span>
@@ -72,7 +196,7 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in-up">
-      <img src="assets/logo.webp" alt="KAV Logo" class="hero-logo-img">
+      <img src="assets/logo.webp" alt="KAV Logo" class="hero-logo-img" width="100" height="100">
       <h1 class="hero-title">THE KAV – A Green Bistro in North Paravur</h1>
       <h2 class="hero-subtitle">Where Nature Meets Taste</h2>
       <div class="hero-buttons">
@@ -89,7 +213,7 @@
   <section class="section about" id="about">
     <div class="container about-container">
       <div class="about-image reveal-left">
-        <img src="assets/new_interior.webp" alt="Interior of KAV Bistro">
+        <img src="assets/new_interior.webp" alt="Interior of KAV Bistro" loading="lazy" width="600" height="400">
       </div>
       <div class="about-text reveal-right">
         <h4 class="section-subtitle">Our Story</h4>
@@ -117,7 +241,8 @@
         <!-- Item 1: Steak -->
         <div class="menu-card reveal-up">
           <div class="menu-img-wrapper">
-            <img src="assets/menu_chicken_steak.webp" alt="Chicken Steak" class="menu-img" loading="lazy">
+            <img src="assets/menu_chicken_steak.webp" alt="Chicken Steak" class="menu-img" loading="lazy" width="400"
+              height="250">
           </div>
           <div class="menu-details">
             <div class="menu-header">
@@ -130,7 +255,8 @@
         <!-- Item 2: Rice Bowl -->
         <div class="menu-card reveal-up" style="animation-delay: 0.1s;">
           <div class="menu-img-wrapper">
-            <img src="assets/menu_chicken_rice_bowl.webp" alt="Chicken Rice Bowl" class="menu-img" loading="lazy">
+            <img src="assets/menu_chicken_rice_bowl.webp" alt="Chicken Rice Bowl" class="menu-img" loading="lazy"
+              width="400" height="250">
           </div>
           <div class="menu-details">
             <div class="menu-header">
@@ -144,7 +270,7 @@
         <div class="menu-card reveal-up" style="animation-delay: 0.2s;">
           <div class="menu-img-wrapper">
             <img src="assets/menu_penne_marinara.webp" alt="Penne Chicken Marinara" class="menu-img" loading="lazy"
-              style="object-position: center 35%;">
+              style="object-position: center 35%;" width="400" height="250">
           </div>
           <div class="menu-details">
             <div class="menu-header">
@@ -157,7 +283,8 @@
         <!-- Item 4: Burger -->
         <div class="menu-card reveal-up" style="animation-delay: 0.3s;">
           <div class="menu-img-wrapper">
-            <img src="assets/menu_burger.webp" alt="Gourmet Burger" class="menu-img" loading="lazy">
+            <img src="assets/menu_burger.webp" alt="Gourmet Burger" class="menu-img" loading="lazy" width="400"
+              height="250">
           </div>
           <div class="menu-details">
             <div class="menu-header">
@@ -170,7 +297,8 @@
         <!-- Item 5: Cappuccino -->
         <div class="menu-card reveal-up" style="animation-delay: 0.4s;">
           <div class="menu-img-wrapper">
-            <img src="assets/menu_cappuccino.webp" alt="Cappuccino" class="menu-img" loading="lazy">
+            <img src="assets/menu_cappuccino.webp" alt="Cappuccino" class="menu-img" loading="lazy" width="400"
+              height="250">
           </div>
           <div class="menu-details">
             <div class="menu-header">
@@ -258,17 +386,11 @@
     <div class="container">
       <div class="section-header text-center reveal-up">
         <h4 class="section-subtitle">Stay Connected</h4>
-        <h2 class="section-title"><a href="https://www.instagram.com/thekavcafe" target="_blank"
-            class="insta-link-text">Follow Us @thekavcafe</a></h2>
+        <h2 class="section-title">Follow Us @thekavcafe</h2>
       </div>
       <div class="insta-embed-container reveal-up">
         <script src="https://elfsightcdn.com/platform.js" async></script>
         <div class="elfsight-app-3999b951-65c5-4f07-b4b5-aa9ff57ce173" data-elfsight-app-lazy></div>
-      </div>
-      <div class="text-center reveal-up" style="margin-top: 30px;">
-        <a href="https://www.instagram.com/thekavcafe" target="_blank" class="btn btn-outline btn-dark-outline">
-          <i class="fab fa-instagram"></i> Follow on Instagram
-        </a>
       </div>
 
     </div>
@@ -294,14 +416,19 @@
           <form class="reservation-form" id="reservationForm">
             <h3>Reserve a Table</h3>
             <div class="form-group">
+              <label for="res-name" class="sr-only">Name</label>
               <input type="text" id="res-name" placeholder="Name" required>
+              <label for="res-phone" class="sr-only">Phone Number</label>
               <input type="tel" id="res-phone" placeholder="Phone" required>
             </div>
             <div class="form-group">
+              <label for="res-date" class="sr-only">Date</label>
               <input type="date" id="res-date" required>
+              <label for="res-time" class="sr-only">Time</label>
               <select id="res-time" required>
                 <option value="">Select Time</option>
               </select>
+              <label for="res-guests" class="sr-only">Number of Guests</label>
               <select id="res-guests" required>
                 <option value="">Guests</option>
                 <option value="1">1 Person</option>
@@ -316,8 +443,9 @@
         <div class="map-wrapper">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62840.463477095975!2d76.23026689999999!3d10.1375877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0811f8733cc1f1%3A0xcf53f141075bd1fc!2sThe%20Kav!5e0!3m2!1sen!2sin!4v1767847172620!5m2!1sen!2sin"
-            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+            title="Google Map showing the location of The Kav Cafe, North Paravur" width="100%" height="100%"
+            style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
     </div>
@@ -328,7 +456,7 @@
     <div class="container footer-container">
       <div class="footer-brand">
         <a href="#home">
-          <img src="assets/logo.webp" alt="KAV Logo" class="footer-logo">
+          <img src="assets/logo.webp" alt="KAV Logo" class="footer-logo" width="60" height="60" loading="lazy">
         </a>
         <p>A Green Bistro Experience.</p>
       </div>
@@ -339,7 +467,8 @@
         <a href="#privacy">Privacy</a>
       </div>
       <div class="footer-socials">
-        <a href="https://www.instagram.com/thekavcafe" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/thekavcafe?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          target="_blank"><i class="fab fa-instagram"></i></a>
         <!-- <a href="#"><i class="fab fa-facebook-f"></i></a>
         <a href="#"><i class="fab fa-twitter"></i></a> -->
       </div>
