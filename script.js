@@ -77,7 +77,28 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Reservation Form Handler
+// Main Script for KAV Bistro
+
+// Aggressively remove Elfsight Branding (including Shadow DOM)
+function removeBranding() {
+  // 1. Try normal DOM
+  const brandingLinks = document.querySelectorAll('a[href*="elfsight.com"], .eapps-link');
+  brandingLinks.forEach(link => link.remove());
+
+  // 2. Try Shadow DOM
+  const widgets = document.querySelectorAll('div[class*="elfsight-app"]');
+  widgets.forEach(widget => {
+    if (widget.shadowRoot) {
+      const shadowLinks = widget.shadowRoot.querySelectorAll('a[href*="elfsight.com"]');
+      shadowLinks.forEach(link => link.remove());
+    }
+  });
+}
+
+// Run repeatedly to catch it as it loads (every 100ms)
+setInterval(removeBranding, 100);
+window.onload = removeBranding;
+
 document.addEventListener('DOMContentLoaded', () => {
   const reservationForm = document.getElementById('reservationForm');
   const dateInput = document.getElementById('res-date');

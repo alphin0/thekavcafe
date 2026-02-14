@@ -4,3 +4,6 @@ dist/
 .env
 .idea/
 *.iml
+*.py
+__pycache__/
+.vscode/

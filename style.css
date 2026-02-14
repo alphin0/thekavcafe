@@ -179,9 +179,11 @@ img {
   background: rgba(255, 255, 255, 0.05);
   /* Initially almost transparent */
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
   display: flex;
   align-items: center;
+  padding-top: env(safe-area-inset-top);
 }
 
 .navbar.scrolled {
@@ -194,6 +196,7 @@ img {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: 100%;
 }
 
 .nav-logo {
@@ -256,14 +259,17 @@ img {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  gap: 5px;
+  width: 30px;
+  height: 21px;
+  justify-content: space-between;
 }
 
 .bar {
-  width: 25px;
+  width: 100%;
   height: 3px;
   background-color: var(--color-white);
   transition: 0.3s;
+  border-radius: 2px;
 }
 
 .navbar.scrolled .bar {
@@ -787,6 +793,37 @@ select:focus {
   align-items: center;
   min-height: 400px;
   width: 100%;
+  overflow: hidden;
+  /* Crop the overflow */
+  position: relative;
+  /* Needed for the overlay */
+  padding-bottom: 0;
+  /* Adjust padding if needed */
+}
+
+/* Aggressive Cover-up for Elfsight Branding */
+.insta-embed-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  /* Reduced height to show more content */
+  background-color: var(--color-off-white);
+  /* Match section bg */
+  z-index: 50;
+  pointer-events: none;
+  /* Let clicks pass through if needed, though this covers it */
+}
+
+/* Crop Hack for Elfsight Branding */
+.elfsight-app-3999b951-65c5-4f07-b4b5-aa9ff57ce173 {
+  width: 100%;
+  margin-bottom: 0px;
+  /* Reset negative margin */
+  position: relative;
+  z-index: 1;
 }
 
 
@@ -798,6 +835,19 @@ select:focus {
 .btn-dark-outline:hover {
   background-color: var(--color-forest);
   color: var(--color-white);
+}
+
+/* Hide Elfsight Branding */
+.eapps-link,
+a[href*="elfsight.com"],
+.elfsight-app-3999b951-65c5-4f07-b4b5-aa9ff57ce173>a {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  font-size: 0 !important;
 }
 
 /* Mobile Responsive */
