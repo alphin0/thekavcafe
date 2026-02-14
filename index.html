@@ -43,17 +43,37 @@
     content="Experience a botanical, eco-luxury dining sanctuary in North Paravur. Where nature meets taste with fresh, sustainable ingredients.">
   <meta property="twitter:image" content="https://thekav.com/assets/main_bg.webp">
 
+  <!-- Performance Hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Non-blocking Fonts & Icons -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    media="print" onload="this.media='all'">
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print"
+    onload="this.media='all'">
+
+  <!-- High Priority LCP Candidate Preload -->
+  <link rel="preload" as="image" href="assets/main_bg_tiny.webp" media="(max-width: 480px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/main_bg_mobile.webp" media="(min-width: 481px) and (max-width: 768px)"
+    fetchpriority="high">
+  <link rel="preload" as="image" href="assets/main_bg.webp" media="(min-width: 769px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/logo.webp" fetchpriority="high">
+
   <style>
-    /* Critical CSS to improve LCP & prevent FOIT */
+    /* Critical CSS: Core Layout & Typography */
     :root {
       --color-forest: #1A3C34;
-      --color-sage-light: #E1EBE2;
       --color-white: #FFFFFF;
       --color-off-white: #F8F9F5;
-      --color-gold: #C5A065;
       --font-heading: 'Playfair Display', serif;
       --font-body: 'Outfit', sans-serif;
-      --header-height: 80px;
     }
 
     * {
@@ -66,12 +86,14 @@
     body {
       width: 100%;
       overflow-x: hidden;
-      font-family: var(--font-body);
+      font-family: sans-serif;
+      /* Fallback for immediate paint */
       background-color: var(--color-off-white);
     }
 
     .hero {
       height: 100vh;
+      height: 100dvh;
       width: 100%;
       position: relative;
       display: flex;
@@ -94,7 +116,18 @@
       z-index: 1;
     }
 
-    @media (max-width: 768px) {
+    /* Device-specific LCP Image Logic */
+    @media (max-width: 480px) {
+      .hero-bg {
+        background-image: url('assets/main_bg_tiny.webp');
+      }
+
+      .hero-title {
+        font-size: 2.2rem !important;
+      }
+    }
+
+    @media (min-width: 481px) and (max-width: 768px) {
       .hero-bg {
         background-image: url('assets/main_bg_mobile.webp');
       }
@@ -125,24 +158,13 @@
       z-index: 3;
       max-width: 800px;
       padding: 0 20px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: f 1s forwards 0.2s;
-    }
-
-    @keyframes f {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     .hero-title {
-      font-family: var(--font-heading);
+      font-weight: 600;
       font-size: 4rem;
-      margin-bottom: 10px;
-      color: var(--color-white);
       line-height: 1.1;
+      margin-bottom: 10px;
     }
 
     .navbar {
@@ -150,15 +172,14 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: var(--header-height);
+      height: 80px;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
     }
   </style>
 
-  <!-- Styles -->
+  <!-- Main Stylesheet (Deferred) -->
   <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="style.css">
