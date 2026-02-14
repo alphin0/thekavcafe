@@ -871,6 +871,10 @@ a[href*="elfsight.com"],
     font-size: 2.5rem;
   }
 
+  .hero-bg {
+    background-image: url('assets/main_bg_mobile.webp');
+  }
+
   .nav-menu {
     position: fixed;
     top: 0;
