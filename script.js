@@ -129,13 +129,12 @@ brandingObserver.observe(document.body, {
   subtree: true
 });
 
-// Run resource loader
-window.addEventListener('load', () => {
+// Run resource loader on DOMContentLoaded for faster mobile injection
+document.addEventListener('DOMContentLoaded', () => {
   loadSecondaryResources();
-  // Falling back to 10s observer
+  // Disconnect observer after 10s as a safety measure
   setTimeout(() => brandingObserver.disconnect(), 10000);
 });
-window.onload = removeBranding;
 
 document.addEventListener('DOMContentLoaded', () => {
   const reservationForm = document.getElementById('reservationForm');
