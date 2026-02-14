@@ -42,22 +42,9 @@
   <meta property="twitter:description"
     content="Experience a botanical, eco-luxury dining sanctuary in North Paravur. Where nature meets taste with fresh, sustainable ingredients.">
   <meta property="twitter:image" content="https://thekav.com/assets/main_bg.webp">
-
-  <!-- Performance Hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-  <!-- Non-blocking Fonts & Icons -->
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-    media="print" onload="this.media='all'">
-
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print"
-    onload="this.media='all'">
 
   <!-- High Priority LCP Candidate Preload -->
   <link rel="preload" as="image" href="assets/main_bg_tiny.webp" media="(max-width: 480px)" fetchpriority="high">
@@ -67,11 +54,12 @@
   <link rel="preload" as="image" href="assets/logo.webp" fetchpriority="high">
 
   <style>
-    /* Critical CSS: Core Layout & Typography */
+    /* Critical CSS: Core Layout, Reset & Performance */
     :root {
       --color-forest: #1A3C34;
       --color-white: #FFFFFF;
       --color-off-white: #F8F9F5;
+      --color-gold: #C5A065;
       --font-heading: 'Playfair Display', serif;
       --font-body: 'Outfit', sans-serif;
     }
@@ -86,11 +74,65 @@
     body {
       width: 100%;
       overflow-x: hidden;
-      font-family: sans-serif;
-      /* Fallback for immediate paint */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--color-off-white);
+      color: #2C2C2C;
     }
 
+    /* Base Typography Reset */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* Navbar Skeleton */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-link {
+      color: var(--color-off-white);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-cta {
+      border: 1px solid var(--color-gold);
+      padding: 8px 20px;
+      border-radius: 20px;
+      color: var(--color-gold) !important;
+    }
+
+    /* Hero Skeleton */
     .hero {
       height: 100vh;
       height: 100dvh;
@@ -116,7 +158,6 @@
       z-index: 1;
     }
 
-    /* Device-specific LCP Image Logic */
     @media (max-width: 480px) {
       .hero-bg {
         background-image: url('assets/main_bg_tiny.webp');
@@ -124,6 +165,10 @@
 
       .hero-title {
         font-size: 2.2rem !important;
+      }
+
+      .nav-menu {
+        display: none;
       }
     }
 
@@ -161,21 +206,44 @@
     }
 
     .hero-title {
+      font-family: var(--font-heading);
       font-weight: 600;
       font-size: 4rem;
       line-height: 1.1;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      color: var(--color-white);
     }
 
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    /* Button Skeleton */
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 500;
+      text-align: center;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: var(--color-forest);
+      color: var(--color-white);
+    }
+
+    .btn-outline {
+      border-color: var(--color-white);
+      color: var(--color-white);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
     }
   </style>
 
@@ -201,7 +269,7 @@
         <span class="bar"></span>
       </div>
       <ul class="nav-menu">
-        <li class="nav-close-btn" id="nav-close"><i class="fas fa-times"></i></li>
+        <li class="nav-close-btn" id="nav-close" aria-label="Close Menu">&times;</li>
         <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
         <li class="nav-item"><a href="#menu" class="nav-link">Menu</a></li>
         <li class="nav-item"><a href="#philosophy" class="nav-link">Philosophy</a></li>
@@ -410,7 +478,6 @@
         <h2 class="section-title">Follow Us @thekavcafe</h2>
       </div>
       <div class="insta-embed-container reveal-up">
-        <script src="https://elfsightcdn.com/platform.js" async></script>
         <div class="elfsight-app-3999b951-65c5-4f07-b4b5-aa9ff57ce173" data-elfsight-app-lazy></div>
       </div>
 

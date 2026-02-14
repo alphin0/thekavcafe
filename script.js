@@ -82,7 +82,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Main Script for KAV Bistro
 
-// 85. Optimized removal of Elfsight branding using MutationObserver
+// 85. Stage 2 Loader: Load heavy external resources after initial paint
+function loadSecondaryResources() {
+  const resources = [
+    { type: 'link', rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap' },
+    { type: 'link', rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' },
+    { type: 'script', src: 'https://elfsightcdn.com/platform.js' }
+  ];
+
+  resources.forEach(res => {
+    let el;
+    if (res.type === 'link') {
+      el = document.createElement('link');
+      el.rel = res.rel;
+      el.href = res.href;
+    } else {
+      el = document.createElement('script');
+      el.src = res.src;
+      el.async = true;
+    }
+    document.head.appendChild(el);
+  });
+}
+
+// 86. Optimized removal of Elfsight branding using MutationObserver
 function removeBranding() {
   const brandingLinks = document.querySelectorAll('a[href*="elfsight.com"], .eapps-link');
   brandingLinks.forEach(link => link.remove());
@@ -106,9 +129,12 @@ brandingObserver.observe(document.body, {
   subtree: true
 });
 
-// Initial run and fallback timeout to stop observing after 10s
-removeBranding();
-setTimeout(() => brandingObserver.disconnect(), 10000);
+// Run resource loader
+window.addEventListener('load', () => {
+  loadSecondaryResources();
+  // Falling back to 10s observer
+  setTimeout(() => brandingObserver.disconnect(), 10000);
+});
 window.onload = removeBranding;
 
 document.addEventListener('DOMContentLoaded', () => {
