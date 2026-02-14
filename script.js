@@ -86,8 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadSecondaryResources() {
   const resources = [
     { type: 'link', rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap' },
-    { type: 'link', rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' },
-    { type: 'script', src: 'https://elfsightcdn.com/platform.js' }
+    { type: 'link', rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' }
+    // { type: 'script', src: 'https://elfsightcdn.com/platform.js' }
   ];
 
   resources.forEach(res => {
@@ -106,6 +106,7 @@ function loadSecondaryResources() {
 }
 
 // 86. Optimized removal of Elfsight branding using MutationObserver
+/*
 function removeBranding() {
   const brandingLinks = document.querySelectorAll('a[href*="elfsight.com"], .eapps-link');
   brandingLinks.forEach(link => link.remove());
@@ -128,12 +129,13 @@ brandingObserver.observe(document.body, {
   childList: true,
   subtree: true
 });
+*/
 
 // Run resource loader on DOMContentLoaded for faster mobile injection
 document.addEventListener('DOMContentLoaded', () => {
   loadSecondaryResources();
   // Disconnect observer after 10s as a safety measure
-  setTimeout(() => brandingObserver.disconnect(), 10000);
+  // setTimeout(() => brandingObserver.disconnect(), 10000);
 });
 
 document.addEventListener('DOMContentLoaded', () => {

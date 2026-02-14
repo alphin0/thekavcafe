@@ -804,11 +804,11 @@ select:focus {
 }
 
 /* Instagram Section */
+/* Instagram Section (Commented out)
 .instagram-section {
   background-color: var(--color-off-white);
   padding-bottom: 50px;
 }
-
 
 .insta-embed-container {
   display: flex;
@@ -817,14 +817,11 @@ select:focus {
   min-height: 400px;
   width: 100%;
   overflow: hidden;
-  /* Crop the overflow */
   position: relative;
-  /* Needed for the overlay */
   padding-bottom: 0;
-  /* Adjust padding if needed */
 }
 
-/* Aggressive Cover-up for Elfsight Branding */
+
 .insta-embed-container::after {
   content: '';
   position: absolute;
@@ -832,23 +829,18 @@ select:focus {
   left: 0;
   width: 100%;
   height: 40px;
-  /* Reduced height to show more content */
   background-color: var(--color-off-white);
-  /* Match section bg */
   z-index: 50;
   pointer-events: none;
-  /* Let clicks pass through if needed, though this covers it */
 }
 
-/* Crop Hack for Elfsight Branding */
+
 .elfsight-app-3999b951-65c5-4f07-b4b5-aa9ff57ce173 {
   width: 100%;
   margin-bottom: 0px;
-  /* Reset negative margin */
   position: relative;
   z-index: 1;
 }
-
 
 .btn-dark-outline {
   border-color: var(--color-forest);
@@ -860,7 +852,6 @@ select:focus {
   color: var(--color-white);
 }
 
-/* Hide Elfsight Branding */
 .eapps-link,
 a[href*="elfsight.com"],
 .elfsight-app-3999b951-65c5-4f07-b4b5-aa9ff57ce173>a {
@@ -872,6 +863,7 @@ a[href*="elfsight.com"],
   width: 0 !important;
   font-size: 0 !important;
 }
+*/
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
@@ -1007,4 +999,95 @@ a[href*="elfsight.com"],
   }
 
 
+}
+/* Instagram Static Section */
+.instagram-static {
+  background-color: var(--color-off-white);
+  padding: 50px 0;
+}
+
+.section-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.section-title a:hover {
+    color: var(--color-gold);
+}
+
+.insta-handle-link {
+  display: block;
+  margin-top: 5px;
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.insta-handle-link:hover {
+  color: var(--color-gold);
+}
+
+.static-insta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  max-width: 1000px;
+  margin: 40px auto;
+}
+
+.insta-item {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.insta-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.insta-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 60, 52, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.insta-overlay i {
+  font-size: 2rem;
+  color: white;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.insta-item:hover img {
+  transform: scale(1.1);
+}
+
+.insta-item:hover .insta-overlay {
+  opacity: 1;
+}
+
+.insta-item:hover .insta-overlay i {
+  transform: scale(1);
+}
+
+@media (max-width: 768px) {
+  .static-insta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
