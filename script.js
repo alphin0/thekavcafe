@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   mobileMenuBtn.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     mobileMenuBtn.classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
   });
 
   const closeBtn = document.getElementById('nav-close');
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     closeBtn.addEventListener('click', () => {
       navMenu.classList.remove('active');
       mobileMenuBtn.classList.remove('active');
+      document.body.classList.remove('no-scroll');
     });
   }
 
@@ -33,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => {
       navMenu.classList.remove('active');
       mobileMenuBtn.classList.remove('active');
+      document.body.classList.remove('no-scroll');
     });
   });
 
@@ -113,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const today = `${year}-${month}-${day}`;
 
     dateInput.setAttribute('min', today);
+    dateInput.value = today; // Pre-select today
 
     // 2. Function to Populate Time Slots
     const populateTimeSlots = () => {
